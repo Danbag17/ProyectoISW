@@ -35,13 +35,13 @@ namespace ManteHos.Persistence
         public virtual DbSet<UsedPart> UsedParts { get; set; }
         public virtual DbSet<WorkOrder> WorkOrders { get; set; }
 
-        // AQUÍ ESTÁ EL ARREGLO DE LA TABLA INTERMEDIA
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Configuración de fechas
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
 
-            // --- ESTO ES LO QUE FALTABA PARA QUE SE GUARDEN LOS OPERARIOS ---
+            
             modelBuilder.Entity<WorkOrder>()
                 .HasMany(w => w.Operators)
                 .WithMany(o => o.WorkOrders)
@@ -51,7 +51,7 @@ namespace ManteHos.Persistence
                     m.MapLeftKey("WorkOrderId");
                     m.MapRightKey("OperatorId");
                 });
-            // ----------------------------------------------------------------
+            
 
             base.OnModelCreating(modelBuilder);
         }

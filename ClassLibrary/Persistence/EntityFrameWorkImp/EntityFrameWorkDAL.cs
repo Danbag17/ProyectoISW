@@ -14,7 +14,7 @@ namespace ManteHos.Persistence
         public EntityFrameworkDAL(DbContextISW dbContext)
         {
             this.dbContext = dbContext;
-            // --- LÍNEAS MÁGICAS AÑADIDAS ---
+            
             // Esto obliga a Entity Framework a cargar las relaciones (Operarios, Incidentes...)
             // Si esto estaba en 'false' por defecto, por eso no se guardaban o leían bien los datos.
             this.dbContext.Configuration.LazyLoadingEnabled = true;
