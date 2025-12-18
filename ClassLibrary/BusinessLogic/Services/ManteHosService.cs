@@ -2,6 +2,7 @@
 using ManteHos.Persistence;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 
 namespace ManteHos.Services
@@ -148,7 +149,27 @@ namespace ManteHos.Services
         }
 
 
-        public void Login(string l, string p) { User_Logged = dal.GetById<Employee>(l); }
+        public void Login(string l, string p)
+        {
+
+            Employee emp = dal.GetById<Employee>(l);
+
+            if (emp != null && emp.Password == p)
+            {
+                User_Logged = emp;
+            }
+            else if (emp == null)
+            {
+
+                throw new ServiceException("El usuario es incorrecto");
+
+            }
+            else if (emp.Password != p)
+            {
+                throw new ServiceException("La contraseña es incorrecta");
+            }
+        }
+           
         public Employee UserLogged() { return User_Logged; }
         public void Logout() { User_Logged = null; }
 
