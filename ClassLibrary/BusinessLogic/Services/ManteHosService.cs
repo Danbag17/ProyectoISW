@@ -47,7 +47,7 @@ namespace ManteHos.Services
             op2.Area = a2;
             Operator op3 = new Operator("Rompetechos", "o3", "o3", Shift.Night);
             AddPerson(op3);
-            op3.Area = a3;
+            op3.Area = a1;
             
 
             Employee empleado1 = new Employee("Sacarino", "e1", "e1");
@@ -71,6 +71,19 @@ namespace ManteHos.Services
         // GUARDAR LA ORDEN 
         public WorkOrder AssignWorkOrder(Incident incident, List<Operator> operators)
         {
+            // 1. Verificamos que hay operarios seleccionados
+            if (operators == null || operators.Count == 0)
+                throw new ServiceException("Selecciona al menos un operario.");
+
+            //  Obtenemos el turno del primer operario como referencia
+            var turnoReferencia = dal.GetById<Operator>(operators[0].Id).Shift;
+
+            //  Comprobamos si hay algún operario con un turno distinto
+            if (operators.Any(op => dal.GetById<Operator>(op.Id).Shift != turnoReferencia))
+            {
+                throw new ServiceException("Error: Todos los operarios deben ser del mismo turno.");
+            }
+
             Incident incReal = dal.GetById<Incident>(incident.Id);
             WorkOrder wo = new WorkOrder(DateTime.Now, incReal);
 
