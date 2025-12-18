@@ -51,7 +51,6 @@
             this.lblInformeTexto = new System.Windows.Forms.Label();
             this.lblInformeTitulo = new System.Windows.Forms.Label();
             this.btnCerrarOrden = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dfvOrdenes)).BeginInit();
             this.panelOrdenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -63,14 +62,14 @@
             // dfvOrdenes
             // 
             this.dfvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dfvOrdenes.Location = new System.Drawing.Point(14, 60);
+            this.dfvOrdenes.Location = new System.Drawing.Point(13, 60);
             this.dfvOrdenes.MultiSelect = false;
             this.dfvOrdenes.Name = "dfvOrdenes";
             this.dfvOrdenes.ReadOnly = true;
             this.dfvOrdenes.RowHeadersWidth = 51;
             this.dfvOrdenes.RowTemplate.Height = 24;
             this.dfvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dfvOrdenes.Size = new System.Drawing.Size(185, 286);
+            this.dfvOrdenes.Size = new System.Drawing.Size(441, 286);
             this.dfvOrdenes.TabIndex = 0;
             this.dfvOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dfvOrdenes_CellContentClick);
             // 
@@ -79,9 +78,9 @@
             this.panelOrdenes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOrdenes.Controls.Add(this.lblOrdenes);
             this.panelOrdenes.Controls.Add(this.dfvOrdenes);
-            this.panelOrdenes.Location = new System.Drawing.Point(23, 12);
+            this.panelOrdenes.Location = new System.Drawing.Point(23, 28);
             this.panelOrdenes.Name = "panelOrdenes";
-            this.panelOrdenes.Size = new System.Drawing.Size(221, 372);
+            this.panelOrdenes.Size = new System.Drawing.Size(471, 367);
             this.panelOrdenes.TabIndex = 1;
             // 
             // lblOrdenes
@@ -116,9 +115,9 @@
             this.panelInfoOrden.Controls.Add(this.lblFechaInicio);
             this.panelInfoOrden.Controls.Add(this.lblFechaTitulo);
             this.panelInfoOrden.Controls.Add(this.lblDescripcion);
-            this.panelInfoOrden.Location = new System.Drawing.Point(259, 12);
+            this.panelInfoOrden.Location = new System.Drawing.Point(522, 28);
             this.panelInfoOrden.Name = "panelInfoOrden";
-            this.panelInfoOrden.Size = new System.Drawing.Size(245, 372);
+            this.panelInfoOrden.Size = new System.Drawing.Size(494, 367);
             this.panelInfoOrden.TabIndex = 4;
             // 
             // lblInfoOrdenTitulo
@@ -161,7 +160,7 @@
             this.dgvPiezasUsadas.RowHeadersWidth = 51;
             this.dgvPiezasUsadas.RowTemplate.Height = 24;
             this.dgvPiezasUsadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPiezasUsadas.Size = new System.Drawing.Size(204, 61);
+            this.dgvPiezasUsadas.Size = new System.Drawing.Size(455, 61);
             this.dgvPiezasUsadas.TabIndex = 5;
             // 
             // txtDescripcion
@@ -171,7 +170,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ReadOnly = true;
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcion.Size = new System.Drawing.Size(207, 71);
+            this.txtDescripcion.Size = new System.Drawing.Size(458, 71);
             this.txtDescripcion.TabIndex = 4;
             // 
             // lblPiezasTitulo
@@ -220,9 +219,9 @@
             this.panelInforme.Controls.Add(this.txtInforme);
             this.panelInforme.Controls.Add(this.lblInformeTexto);
             this.panelInforme.Controls.Add(this.lblInformeTitulo);
-            this.panelInforme.Location = new System.Drawing.Point(527, 59);
+            this.panelInforme.Location = new System.Drawing.Point(1022, 28);
             this.panelInforme.Name = "panelInforme";
-            this.panelInforme.Size = new System.Drawing.Size(261, 325);
+            this.panelInforme.Size = new System.Drawing.Size(261, 367);
             this.panelInforme.TabIndex = 5;
             // 
             // dtpFechaCierre
@@ -276,7 +275,7 @@
             // 
             // btnCerrarOrden
             // 
-            this.btnCerrarOrden.Location = new System.Drawing.Point(689, 401);
+            this.btnCerrarOrden.Location = new System.Drawing.Point(1184, 401);
             this.btnCerrarOrden.Name = "btnCerrarOrden";
             this.btnCerrarOrden.Size = new System.Drawing.Size(99, 37);
             this.btnCerrarOrden.TabIndex = 6;
@@ -284,21 +283,11 @@
             this.btnCerrarOrden.UseVisualStyleBackColor = true;
             this.btnCerrarOrden.Click += new System.EventHandler(this.btnCerrarOrden_Click);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(688, 12);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(100, 23);
-            this.btnLogout.TabIndex = 7;
-            this.btnLogout.Text = "Cerrar sesión";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            // 
             // CerrarOrdenTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLogout);
+            this.ClientSize = new System.Drawing.Size(1295, 466);
             this.Controls.Add(this.btnCerrarOrden);
             this.Controls.Add(this.panelInforme);
             this.Controls.Add(this.panelInfoOrden);
@@ -344,6 +333,5 @@
         private System.Windows.Forms.Label lblFechaCierre;
         private System.Windows.Forms.TextBox txtInforme;
         private System.Windows.Forms.Button btnCerrarOrden;
-        private System.Windows.Forms.Button btnLogout;
     }
 }
