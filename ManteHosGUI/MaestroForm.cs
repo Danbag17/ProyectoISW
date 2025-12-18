@@ -59,34 +59,43 @@ namespace ManteHosGUI
         private void button1_Click(object sender, EventArgs e)
         {
            
-            // 1. Validar que hay algo seleccionado en la tabla
             if (dgvIncidencias.CurrentRow == null)
             {
                 MessageBox.Show("Selecciona una incidencia primero.");
                 return;
             }
 
-            // 2. Recuperar el objeto Incidencia de la fila seleccionada
             Incident incidenciaSeleccionada = (Incident)dgvIncidencias.CurrentRow.DataBoundItem;
 
-            // 3. Comprobación de seguridad (Opcional, según PDF)
-            // Si la incidencia ya está cerrada o en progreso, quizás no quieras dejar abrirla
+            
+            WorkOrder ordenExistente = service.GetWorkOrderByIncident(incidenciaSeleccionada);
+
+            if (ordenExistente == null)
+            {
+                DialogResult respuesta = MessageBox.Show(
+                    "No hay orden de trabajo asociada a esta incidencia.\n¿Desea crear una nueva?",
+                    "Crear Orden de Trabajo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.No)
+                {
+                   
+                    return;
+                }
+              
+            }
+            
             if (incidenciaSeleccionada.Status == Status.Completed)
             {
                 MessageBox.Show("Esta incidencia ya está cerrada.");
                 return;
             }
 
-            // 4. --- AQUÍ ESTÁ LA MAGIA ---
-            // Creamos tu ventana YA HECHA y le pasamos el servicio y la incidencia
             AsignarOrdenDeTrabajo ventanaHija = new AsignarOrdenDeTrabajo(this.service, incidenciaSeleccionada);
 
-            // 5. La mostramos como diálogo (bloquea la de atrás)
             ventanaHija.ShowDialog();
 
-            // 6. ¡MUY IMPORTANTE! 
-            // Cuando la ventana hija se cierre (ShowDialog termina), 
-            // tenemos que refrescar la tabla para que se vea que el estado ha cambiado a "InProgress"
             CargarIncidencias();
         
         }
