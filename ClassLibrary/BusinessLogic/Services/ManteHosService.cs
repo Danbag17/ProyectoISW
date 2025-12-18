@@ -19,7 +19,7 @@ namespace ManteHos.Services
         public void RemoveAllData() { dal.RemoveAllData(); }
         public void Commit() { dal.Commit(); }
 
-        // 1. INICIALIZACIÓN DE DATOS (Vital que se ejecute)
+        // INICIALIZACIÓN DE DATOS 
         public void DBInitialization()
         {
             RemoveAllData();
@@ -68,7 +68,7 @@ namespace ManteHos.Services
             dal.Commit();
         }
 
-        // 2. GUARDAR LA ORDEN (Método Nuclear)
+        // GUARDAR LA ORDEN 
         public WorkOrder AssignWorkOrder(Incident incident, List<Operator> operators)
         {
             Incident incReal = dal.GetById<Incident>(incident.Id);
@@ -78,7 +78,7 @@ namespace ManteHos.Services
             dal.Insert(wo);
             dal.Commit();
 
-            // Recuperamos la orden "VIVA"
+            // Recuperamos la orden 
             WorkOrder ordenViva = dal.GetById<WorkOrder>(wo.Id);
             if (ordenViva.Operators == null) ordenViva.Operators = new List<Operator>();
 
@@ -107,10 +107,10 @@ namespace ManteHos.Services
         {
             if (op == null) return new List<WorkOrder>();
 
-            // 1. Obtenemos todas las órdenes de la base de datos y las pasamos a memoria
+            //Obtenemos todas las órdenes de la base de datos y las pasamos a memoria
             var todas = dal.GetAll<WorkOrder>().ToList();
 
-            // 2. Filtramos las que pertenecen al operario y están abiertas
+            //Filtramos las que pertenecen al operario y están abiertas
             return todas.Where(wo =>
                 (wo.EndDate == null || wo.EndDate == DateTime.MinValue)
                 && wo.Operators != null
@@ -183,14 +183,12 @@ namespace ManteHos.Services
         }
         public void UpdateWorkOrderOperators(WorkOrder w, List<Operator> ops)
         {
-            // Implementación básica necesaria para que no falle la interfaz
             var real = dal.GetById<WorkOrder>(w.Id);
             real.Operators.Clear();
             foreach (var op in ops) real.Operators.Add(dal.GetById<Operator>(op.Id));
             dal.Commit();
         }
 
-        // Métodos vacíos o simples para cumplir interfaz
         public void AssignOperatorToWorkOrder(WorkOrder w, Operator o) { }
         public void RemoveOperatorFromWorkOrder(WorkOrder w, Operator o) { }
         public void AddPerson(Employee e) { dal.Insert(e); dal.Commit(); }
@@ -200,13 +198,12 @@ namespace ManteHos.Services
 
         public WorkOrder GetWorkOrderById(int id)
         {
-            // Recupera la orden completa usando el ID
+
             return dal.GetById<WorkOrder>(id);
         }
 
         public List<Incident> GetPendingIncidents()
         {
-            // Usamos el DAL para filtrar
             return dal.GetWhere<Incident>(x => x.Status == Status.Created).ToList();
         }
 

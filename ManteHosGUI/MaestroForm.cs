@@ -19,23 +19,22 @@ namespace ManteHosGUI
             InitializeComponent();
         }
 
-        // --- 2. La función que te falta ---
+
         private void CargarIncidencias()
         {
-            // A. Obtenemos el usuario actual y lo convertimos a "Master"
+     
             Master maestro = service.UserLogged() as Master;
 
             if (maestro != null)
             {
-                // B. Pedimos al servicio las incidencias de SU área
-                // (Asegúrate de haber añadido este método al servicio como hablamos antes)
+
                 var listaIncidencias = service.GetIncidentsForMaster(maestro.Id);
 
-                // C. Llenamos la tabla
+
                 dgvIncidencias.DataSource = null; // Limpiar primero
                 dgvIncidencias.DataSource = listaIncidencias;
 
-                // D. Opcional: Ocultar columnas feas (Relaciones con otras tablas)
+
                 if (dgvIncidencias.Columns["WorkOrder"] != null)
                     dgvIncidencias.Columns["WorkOrder"].Visible = false;
 
@@ -44,9 +43,7 @@ namespace ManteHosGUI
             }
         }
 
-        // --- 1. Evento Load (Para cargar datos al abrir la ventana) ---
-        // IMPORTANTE: Tienes que conectar este evento desde el rayo amarillo en el diseño
-        // o hacer doble clic en el fondo del formulario.
+  
         private void MaestroForm_Load(object sender, EventArgs e)
         {
             CargarIncidencias();

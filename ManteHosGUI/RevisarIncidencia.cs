@@ -70,7 +70,7 @@ namespace ManteHosGUI
             lblReportado.Text = nombre;
             lblDept.Text = incident.Department;
            
-            //comprobar si directamente se pone valor = incident.Nombre o &"Nombre: "{incident.Nombre}
+            
         }
         private void CargarAreas()
         {

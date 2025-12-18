@@ -33,7 +33,7 @@ namespace ManteHosGUI
         {
             try
             {
-                // 1. Validaciones básicas (incluyendo que se haya seleccionado una prioridad)
+
                 if (string.IsNullOrWhiteSpace(txtDepartamento.Text) ||
                     string.IsNullOrWhiteSpace(txtDescripcion.Text))
                 {
@@ -41,14 +41,10 @@ namespace ManteHosGUI
                     return;
                 }
 
-                // 2. Recoger datos del formulario
                 string departamento = txtDepartamento.Text;
                 string descripcion = txtDescripcion.Text;
                 DateTime fecha = dateFecha.Value;
-              
 
-
-                // 3. Obtener el usuario logueado
                 Employee reportero = service.UserLogged();
 
                 if (reportero == null)
@@ -58,15 +54,10 @@ namespace ManteHosGUI
                     return;
                 }
 
-                // 4. Crear el objeto Incidencia
-                // Usamos el constructor básico 
                 Incident incidente = new Incident(departamento, descripcion, fecha, reportero);
 
-
-                // 5. Llamar al servicio para guardar en la BD
                 service.AddIncident(incidente);
 
-                // 6. Feedback y cerrar
                 MessageBox.Show("Incidencia registrada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
@@ -76,7 +67,6 @@ namespace ManteHosGUI
             }
         }
 
-        // Evento para el botón Cancelar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -97,5 +87,9 @@ namespace ManteHosGUI
 
         }
 
+        private void AñadirIncidencia_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

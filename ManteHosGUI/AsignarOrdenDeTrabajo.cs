@@ -126,7 +126,7 @@ namespace ManteHosGUI
             }
             catch (Exception ex)
             {
-                // Cambiamos a Exception para ver CUALQUIER error de la base de datos
+                // Cambiamos a Exception para ver cualquier error de la base de datos
                 MessageBox.Show("Error al guardar: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -134,6 +134,11 @@ namespace ManteHosGUI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AsignarOrdenDeTrabajo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,13 +12,9 @@ namespace ManteHos.Services
     {
         void RemoveAllData();
         void Commit();
-
-        // Necesario para la inicialización de la BD
         void DBInitialization();
 
-        //
-        // A partir de aquí los necesarios para los CU solicitados
-        //
+     
         void Login(string login, string password);
 
         void Logout();

@@ -60,7 +60,7 @@ namespace ManteHosGUI
                 // Variable para guardar la ventana que vamos a abrir
                 Form ventanaApertura = null;
 
-                // 3. SEMÁFORO DE ROLES
+                // Lista de roles
 
                 if (usuario is Head) // ¿Es Jefe?
                 {
@@ -80,7 +80,7 @@ namespace ManteHosGUI
                     ventanaApertura = new EmpleadoForm(this.service);
                 }
 
-                // 4. ABRIR LA VENTANA
+                //Abrir ventana
                 if (ventanaApertura != null)
                 {
                     this.Hide(); // Ocultamos el Login

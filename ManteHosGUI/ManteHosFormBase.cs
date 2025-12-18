@@ -27,6 +27,10 @@ namespace ManteHosGUI
             {
                 this.service = s;
             }
-            
+
+        private void ManteHosFormBase_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
