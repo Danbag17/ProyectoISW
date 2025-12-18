@@ -63,6 +63,7 @@ namespace ManteHos.Services
             Part p3 = new Part("ClimaEst", 4, "Cristal Climalit de ventana estándar", 0, "Cristal 75x100cms", 200);
             AddPart(p3);
 
+           
 
             dal.Commit();
         }
@@ -87,6 +88,15 @@ namespace ManteHos.Services
                 ordenViva.Operators.Add(opReal);
             }
 
+            if (ordenViva.UsedParts == null)
+                ordenViva.UsedParts = new List<UsedPart>();
+
+            Part p1 = dal.GetById<Part>("Esc50");
+            ordenViva.UsedParts.Add(new UsedPart(2, p1));
+
+            Part p2 = dal.GetById<Part>("TM8");
+            ordenViva.UsedParts.Add(new UsedPart(10, p2));
+
             incReal.Status = Status.InProgress;
             dal.Commit();
 
@@ -97,21 +107,17 @@ namespace ManteHos.Services
         {
             if (op == null) return new List<WorkOrder>();
 
-            // Descargamos todo para asegurar (evita líos de SQL)
+            // 1. Obtenemos todas las órdenes de la base de datos y las pasamos a memoria
             var todas = dal.GetAll<WorkOrder>().ToList();
 
-            // Filtramos en memoria corregiendo el error de la fecha
+            // 2. Filtramos las que pertenecen al operario y están abiertas
             return todas.Where(wo =>
-                // AQUI ESTABA EL ERROR:
-                // Comprobamos si es nulo O si es la fecha mínima (año 0001)
                 (wo.EndDate == null || wo.EndDate == DateTime.MinValue)
-                &&
-                // Comprobamos el operario asegurando espacios limpios
-                wo.Operators != null && wo.Operators.Any(o => o.Id.Trim() == op.Id.Trim())
+                && wo.Operators != null
+                && wo.Operators.Any(o => o.Id.Trim() == op.Id.Trim())
             ).ToList();
+       
         }
-
-        // --- MÉTODOS QUE FALTABAN (LOS AÑADO AQUÍ) ---
 
         public List<Operator> GetOperatorsByArea(int areaId)
         {
@@ -128,7 +134,6 @@ namespace ManteHos.Services
             return wo;
         }
 
-        // --- RESTO DE MÉTODOS DE LA INTERFAZ ---
 
         public void Login(string l, string p) { User_Logged = dal.GetById<Employee>(l); }
         public Employee UserLogged() { return User_Logged; }
@@ -153,19 +158,15 @@ namespace ManteHos.Services
         public void AddIncident(Incident i) { dal.Insert(i); dal.Commit(); }
         //public IEnumerable<Area> GetAreas() { return dal.GetAll<Area>(); }
         // EN ManteHosService.cs
-
-        // CAMBIO 1: Añadir .ToList() aquí para que el ComboBox no explote
         public IEnumerable<Area> GetAreas()
         {
-            return dal.GetAll<Area>().ToList(); // <--- ¡IMPORTANTE EL .ToList()!
+            return dal.GetAll<Area>().ToList(); 
         }
-
-        // CAMBIO 2: Añadir .ToList() aquí también por si acaso
         public IEnumerable<Incident> GetIncidentsPendingReview()
         {
             return dal.GetAll<Incident>()
                       .Where(i => i.Status == Status.Created)
-                      .ToList(); // <--- ¡IMPORTANTE EL .ToList()!
+                      .ToList();
         }
         public List<Operator> GetOperatorsForIncident(Incident i)
         {

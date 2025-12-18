@@ -65,14 +65,13 @@ namespace ManteHosGUI
         {
             if (dfvOrdenes.CurrentRow == null) return;
 
-            // Obtener el ID de la fila seleccionada
-            int id = (int)dfvOrdenes.CurrentRow.Cells["Id"].Value;
+            // Obtenemos el ID de la columna 0
+            int id = Convert.ToInt32(dfvOrdenes.CurrentRow.Cells[0].Value);
 
             try
             {
-                // PASO 4: El sistema busca la información completa de la orden seleccionada
-                selectedOrder = service.GetOpenWorkOrdersForOperator(loggedOp)
-                                       .FirstOrDefault(wo => wo.Id == id);
+                // PASO 4: Recuperamos la orden REAL con todas sus relaciones desde el servicio
+                selectedOrder = service.GetWorkOrderById(id);
 
                 if (selectedOrder != null)
                 {
