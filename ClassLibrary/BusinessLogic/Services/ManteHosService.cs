@@ -191,5 +191,16 @@ namespace ManteHos.Services
             // Recupera la orden completa usando el ID
             return dal.GetById<WorkOrder>(id);
         }
+
+        public List<Incident> GetPendingIncidents()
+        {
+            // Usamos el DAL para filtrar
+            return dal.GetWhere<Incident>(x => x.Status == Status.Created).ToList();
+        }
+
+        public List<Area> GetAllAreas()
+        {
+            return dal.GetAll<Area>().ToList();
+        }
     }
 }

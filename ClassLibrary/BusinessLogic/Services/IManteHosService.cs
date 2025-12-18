@@ -52,5 +52,10 @@ namespace ManteHos.Services
         void UpdateWorkOrderOperators(WorkOrder workOrder, List<Operator> newOperators);
         List<WorkOrder> GetOpenWorkOrdersForOperator(Operator op);
         WorkOrder GetWorkOrderById(int id);
+        List<Incident> GetPendingIncidents();
+        List<Area> GetAllAreas();
+
+
+
     }
 }
