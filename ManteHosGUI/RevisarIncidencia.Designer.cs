@@ -50,7 +50,6 @@
             this.labelArea = new System.Windows.Forms.Label();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -118,21 +117,21 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(10, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(264, 440);
+            this.panel1.Size = new System.Drawing.Size(560, 440);
             this.panel1.TabIndex = 1;
             // 
             // dgvIncidencias
             // 
             this.dgvIncidencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIncidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIncidencias.Location = new System.Drawing.Point(10, 40);
+            this.dgvIncidencias.Location = new System.Drawing.Point(13, 40);
             this.dgvIncidencias.MultiSelect = false;
             this.dgvIncidencias.Name = "dgvIncidencias";
             this.dgvIncidencias.ReadOnly = true;
             this.dgvIncidencias.RowHeadersWidth = 51;
             this.dgvIncidencias.RowTemplate.Height = 24;
             this.dgvIncidencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncidencias.Size = new System.Drawing.Size(230, 400);
+            this.dgvIncidencias.Size = new System.Drawing.Size(528, 379);
             this.dgvIncidencias.TabIndex = 1;
             this.dgvIncidencias.SelectionChanged += new System.EventHandler(this.dgvIncidencias_SelectionChanged);
             // 
@@ -157,7 +156,7 @@
             this.panelDatos.Controls.Add(this.lblDept);
             this.panelDatos.Controls.Add(this.lblFecha);
             this.panelDatos.Controls.Add(this.labelFecha);
-            this.panelDatos.Location = new System.Drawing.Point(309, 51);
+            this.panelDatos.Location = new System.Drawing.Point(590, 51);
             this.panelDatos.Name = "panelDatos";
             this.panelDatos.Size = new System.Drawing.Size(265, 440);
             this.panelDatos.TabIndex = 2;
@@ -190,9 +189,9 @@
             this.panelDecision.Controls.Add(this.labelPrio2);
             this.panelDecision.Controls.Add(this.labelArea);
             this.panelDecision.Controls.Add(this.cbArea);
-            this.panelDecision.Location = new System.Drawing.Point(646, 51);
+            this.panelDecision.Location = new System.Drawing.Point(901, 51);
             this.panelDecision.Name = "panelDecision";
-            this.panelDecision.Size = new System.Drawing.Size(200, 333);
+            this.panelDecision.Size = new System.Drawing.Size(200, 374);
             this.panelDecision.TabIndex = 3;
             // 
             // labelMotivoRechazo
@@ -211,7 +210,7 @@
             this.txtMotivoRechazo.Multiline = true;
             this.txtMotivoRechazo.Name = "txtMotivoRechazo";
             this.txtMotivoRechazo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMotivoRechazo.Size = new System.Drawing.Size(172, 45);
+            this.txtMotivoRechazo.Size = new System.Drawing.Size(172, 101);
             this.txtMotivoRechazo.TabIndex = 7;
             // 
             // rbAceptar
@@ -273,7 +272,7 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(776, 431);
+            this.btnConfirmar.Location = new System.Drawing.Point(1031, 451);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(100, 40);
             this.btnConfirmar.TabIndex = 4;
@@ -281,19 +280,9 @@
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(776, 12);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(102, 23);
-            this.btnLogout.TabIndex = 5;
-            this.btnLogout.Text = "Cerrar sesión";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(629, 431);
+            this.btnCancelar.Location = new System.Drawing.Point(901, 451);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 40);
             this.btnCancelar.TabIndex = 6;
@@ -315,10 +304,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 503);
+            this.ClientSize = new System.Drawing.Size(1143, 503);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.panelDecision);
             this.Controls.Add(this.panelDatos);
@@ -361,7 +349,6 @@
         private System.Windows.Forms.Label labelMotivoRechazo;
         private System.Windows.Forms.TextBox txtMotivoRechazo;
         private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAtras;
     }
