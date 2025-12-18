@@ -33,25 +33,29 @@ namespace ManteHos.Services
             AddPerson(master2);
             Master master3 = new Master("Picasso", "m3", "m3");
             AddPerson(master3);
-            Operator op1 = new Operator("Pepe Gotera", "o1", "o1", Shift.Morning);
-            AddPerson(op1);
-            Operator op2 = new Operator("Otilio", "o2", "o2", Shift.Morning);
-            AddPerson(op2);
-            Operator op3 = new Operator("Rompetechos", "o3", "o3", Shift.Night);
-            AddPerson(op3);
-
-            Employee empleado1 = new Employee("Sacarino", "e1", "e1");
-            AddPerson(empleado1);
-            Employee empleado2 = new Employee("Pepe García", "e2", "e2");
-            AddPerson(empleado2);
-
             Area a1 = new Area("Mecánica", tfmotu);
             AddArea(a1);
             Area a2 = new Area("Electricidad", master2);
             AddArea(a2);
             Area a3 = new Area("Pintura", master3);
             AddArea(a3);
+            Operator op1 = new Operator("Pepe Gotera", "o1", "o1", Shift.Morning);
+            AddPerson(op1);
+            op1.Area = a1;
+            Operator op2 = new Operator("Otilio", "o2", "o2", Shift.Morning);
+            AddPerson(op2);
+            op2.Area = a2;
+            Operator op3 = new Operator("Rompetechos", "o3", "o3", Shift.Night);
+            AddPerson(op3);
+            op3.Area = a3;
+            
 
+            Employee empleado1 = new Employee("Sacarino", "e1", "e1");
+            AddPerson(empleado1);
+            Employee empleado2 = new Employee("Pepe García", "e2", "e2");
+            AddPerson(empleado2);
+
+          
             Part p1 = new Part("Esc50", 5, "Placa de escayola para techo", 1, "Placa de 50x30cms", 5);
             AddPart(p1);
             Part p2 = new Part("TM8", 3000, "Tornillo métrica 8", 100, "Tornillo", 0.01F);
