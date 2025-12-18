@@ -24,33 +24,40 @@ namespace ManteHos.Services
         {
             RemoveAllData();
 
-            // JEFE
-            Head head = new Head("Ibañez", "h1", "h1"); dal.Insert(head);
-
-            // MAESTROS
-            Master m1 = new Master("Bárcenas", "m1", "m1"); dal.Insert(m1);
-
-            // AREAS
-            Area a1 = new Area("Mecánica", m1); dal.Insert(a1);
-
-            // OPERARIOS
+            // Dar de alta ciertos datos relevantes para el sistema
+            Head head = new Head("Ibañez", "h1", "h1");
+            AddPerson(head);
+            Master tfmotu = new Master("Bárcenas", "m1", "m1");
+            AddPerson(tfmotu);
+            Master master2 = new Master("He-Man", "m2", "m2");
+            AddPerson(master2);
+            Master master3 = new Master("Picasso", "m3", "m3");
+            AddPerson(master3);
             Operator op1 = new Operator("Pepe Gotera", "o1", "o1", Shift.Morning);
-            op1.Area = a1;
-            dal.Insert(op1);
+            AddPerson(op1);
+            Operator op2 = new Operator("Otilio", "o2", "o2", Shift.Morning);
+            AddPerson(op2);
+            Operator op3 = new Operator("Rompetechos", "o3", "o3", Shift.Night);
+            AddPerson(op3);
 
-            // EN DBInitialization (ManteHosService.cs)
+            Employee empleado1 = new Employee("Sacarino", "e1", "e1");
+            AddPerson(empleado1);
+            Employee empleado2 = new Employee("Pepe García", "e2", "e2");
+            AddPerson(empleado2);
 
-            // ... (código de Mecánica que ya tienes) ...
+            Area a1 = new Area("Mecánica", tfmotu);
+            AddArea(a1);
+            Area a2 = new Area("Electricidad", master2);
+            AddArea(a2);
+            Area a3 = new Area("Pintura", master3);
+            AddArea(a3);
 
-            // AÑADIR ESTO PARA RECUPERAR LAS OTRAS ÁREAS
-            Master m2 = new Master("He-Man", "m2", "m2"); dal.Insert(m2);
-            Area a2 = new Area("Electricidad", m2); dal.Insert(a2);
-
-            Master m3 = new Master("Picasso", "m3", "m3"); dal.Insert(m3);
-            Area a3 = new Area("Pintura", m3); dal.Insert(a3);
-
-            // ... (resto del código) ...
-
+            Part p1 = new Part("Esc50", 5, "Placa de escayola para techo", 1, "Placa de 50x30cms", 5);
+            AddPart(p1);
+            Part p2 = new Part("TM8", 3000, "Tornillo métrica 8", 100, "Tornillo", 0.01F);
+            AddPart(p2);
+            Part p3 = new Part("ClimaEst", 4, "Cristal Climalit de ventana estándar", 0, "Cristal 75x100cms", 200);
+            AddPart(p3);
 
 
             dal.Commit();
