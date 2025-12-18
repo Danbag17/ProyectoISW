@@ -76,7 +76,7 @@ namespace ManteHos.Persistence
             _transaction = dbContext.Database.BeginTransaction();
         }
 
-        // Sería mejor cambiar el nombre al metodo Commit y dejarlo como SaveChanges()
+        
         public void CommitTransaction()
         {
             _transaction.Commit();
