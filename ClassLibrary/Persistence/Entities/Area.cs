@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ManteHos.Entities
 {
     public partial class Area
     {
-        public String Name         {
+        [Required]public String Name         {
             get; set;
            
         }
-        public int ID
+        [Key]public int Id
         {
             get; set;
         }
-        public virtual Master Master
+        [Required]public virtual Master Master
         {
             get;    set;
         }

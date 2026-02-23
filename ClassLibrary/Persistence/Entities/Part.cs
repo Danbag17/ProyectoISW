@@ -3,41 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace ManteHos.Entities
 {
     public partial class Part
     {
-        public String Code { 
+        [Key]public String Code { 
             get; 
             set;
             
         }
-        public String Description
+       [Required] public String Description
         {
             get;
             set;
 
         }
-        public float UnitPrice
+        [Required]public float UnitPrice
         {
             get;
             set;
 
         }
-        public int CurrentQuantity
+        [Required]public int CurrentQuantity { 
+            get; 
+            set; 
+        }
+        [Required]public int MinimunQuantity
         {
             get;
             set;
 
         }
-        public int MinimunQuantity
-        {
-            get;
-            set;
-
-        }
-        public String UnitOfMeasure
+        [Required]public String UnitOfMeasure
         {
             get;
             set;

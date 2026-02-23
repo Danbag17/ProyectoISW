@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace ManteHos.Entities
 {
     public partial class WorkOrder
     {
-        public int Id
+        [Key]public int Id
         {
             get;
             set;
         }
-        public DateTime StartDate
+        [Required]public DateTime StartDate
         {
             get;
             set;
@@ -38,7 +40,7 @@ namespace ManteHos.Entities
             get;
             set;
         }
-        public virtual Incident Incident
+        [Required]public virtual Incident Incident
         {
             get;
             set;

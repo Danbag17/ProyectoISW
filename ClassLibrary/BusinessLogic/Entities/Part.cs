@@ -12,15 +12,15 @@ namespace ManteHos.Entities
         public Part() {
             UsedParts = new List<UsedPart>();
         }
-        public Part(string Code, int CurrentQuantity, string Description, int MinimunQuantity, string UnitOfMesuare, float UnitPrice)
+        public Part(string Code, int CurrentQuantity, string Description, int MinimunQuantity, string UnitOfMeasure, float UnitPrice)
         {
             {
                 this.Code = Code;
-                this.Description = Description;
-                this.UnitPrice = UnitPrice;
                 this.CurrentQuantity = CurrentQuantity;
+                this.Description = Description;
                 this.MinimunQuantity = MinimunQuantity;
-                this.UnitOfMeasure = UnitOfMesuare;
+                this.UnitOfMeasure = UnitOfMeasure;
+                this.UnitPrice = UnitPrice;
 
                 UsedParts = new List<UsedPart>();
             }

@@ -10,6 +10,7 @@ namespace ManteHos.Entities
     {
         public Shift Shift { get; set; }
         public virtual ICollection<WorkOrder> WorkOrders { get; set; }
-        
+
+        public virtual Area Area { get; set; }
     }
 }

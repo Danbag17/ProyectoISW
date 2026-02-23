@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B78D36F-4660-4E90-A194-765127D504FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ManteHosGUI</RootNamespace>
+    <AssemblyName>ManteHosGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsignarOrdenDeTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarOrdenDeTrabajo.Designer.cs">
+      <DependentUpon>AsignarOrdenDeTrabajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadoForm.Designer.cs">
+      <DependentUpon>EmpleadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AñadirIncidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AñadirIncidencia.Designer.cs">
+      <DependentUpon>AñadirIncidencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CerrarOrdenTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CerrarOrdenTrabajo.Designer.cs">
+      <DependentUpon>CerrarOrdenTrabajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RevisarIncidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevisarIncidencia.Designer.cs">
+      <DependentUpon>RevisarIncidencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HospitalApp.Designer.cs">
+      <DependentUpon>HospitalApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JefeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JefeForm.Designer.cs">
+      <DependentUpon>JefeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaestroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestroForm.Designer.cs">
+      <DependentUpon>MaestroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManteHosFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManteHosFormBase.Designer.cs">
+      <DependentUpon>ManteHosFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperarioForm.Designer.cs">
+      <DependentUpon>OperarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AsignarOrdenDeTrabajo.resx">
+      <DependentUpon>AsignarOrdenDeTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AñadirIncidencia.resx">
+      <DependentUpon>AñadirIncidencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CerrarOrdenTrabajo.resx">
+      <DependentUpon>CerrarOrdenTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadoForm.resx">
+      <DependentUpon>EmpleadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HospitalApp.resx">
+      <DependentUpon>HospitalApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JefeForm.resx">
+      <DependentUpon>JefeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestroForm.resx">
+      <DependentUpon>MaestroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManteHosFormBase.resx">
+      <DependentUpon>ManteHosFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RevisarIncidencia.resx">
+      <DependentUpon>RevisarIncidencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ManteHosLib.csproj">
+      <Project>{41195ae1-b4d3-444d-919c-6033405e1f3f}</Project>
+      <Name>ManteHosLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>

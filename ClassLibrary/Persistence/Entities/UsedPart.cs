@@ -3,27 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace ManteHos.Entities
 {
     public partial class UsedPart
     {
-        public int Id 
+        [Key]public int Id 
         { 
             get; 
             set; 
        }
-        public int Quantity
+        [Required] public int Quantity
         {
             get;
             set;
         }
-        public Boolean Needed
+        [Required]public Boolean Needed
         {
             get;
             set;
         }
-        public virtual Part Part
+        [Required]public virtual Part Part
         {
             get;
             set;

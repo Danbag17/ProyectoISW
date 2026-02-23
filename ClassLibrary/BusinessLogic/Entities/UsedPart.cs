@@ -15,7 +15,7 @@ namespace ManteHos.Entities
             this.Quantity = quantity;
             this.Part = part;
 
-            if (part.CurrentQuantity <= quantity)
+            if (part.CurrentQuantity < quantity)
             {
                 // No hay suficiente → Needed = true
                 this.Needed = true;
@@ -25,6 +25,7 @@ namespace ManteHos.Entities
                 // Hay suficiente → descontar stock y Needed = false
                 part.CurrentQuantity -= quantity;
                 this.Needed = false;
+            
             }
         }
     }

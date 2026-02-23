@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ManteHos.Entities
 {
     public partial class Employee
     {
-        public string FullName
+        [Required]public string FullName
         {
             get; set;
         }
-        public string Id
+        [Key]public string Id
         {
             get; set;
         }
-        public string Password
+        [Required]public string Password
         {
             get; set;
         }

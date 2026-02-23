@@ -10,12 +10,13 @@ namespace ManteHos.Entities
     {
         public Incident() { }
         public Incident(string department, string description, DateTime reportdate, 
-                         Employee reporter) {
+                         Employee reporter) :this() {
             
             this.Description = description;
             this.Department = department;
             this.Reporter = reporter;
             this.ReportDate = reportdate;
+            this.Status = Status.Created;
         }
 
     }
