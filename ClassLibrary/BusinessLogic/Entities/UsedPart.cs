@@ -8,13 +8,10 @@ namespace ManteHos.Entities
 {
     public partial class UsedPart
     {
-        public UsedPart() { 
-            if(this.WorkOrders == null)
-                this.WorkOrders = new List<WorkOrder>();
-        }
+        public UsedPart() { }
 
-        public UsedPart(int quantity, Part part) : this(){
-
+        public UsedPart(int quantity, Part part) {
+            
             this.Quantity = quantity;
             this.Part = part;
 
